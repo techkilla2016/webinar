@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="./assets/common.css" /> 
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+  <title>Basic Communication</title>
+  
+</head>
+<body class="agora-theme">
+  <div class="limiter" id="limiter">
+		<div class="container-login100" id="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-form validate-form">
+					<span class="login100-form-logo">
+						<i class="zmdi zmdi-landscape"></i>
+					</span>
+
+					<span class="login100-form-title p-b-34 p-t-27">
+						Log in
+					</span>
+
+					<div class="wrap-input100 validate-input" data-validate = "Enter username">
+						<input id="username" class="input100" type="text" name="username" placeholder="Username">
+						<span class="focus-input100" data-placeholder="&#xf207;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<input id="pass" class="input100" type="password" name="pass" placeholder="Password">
+						<span class="focus-input100" data-placeholder="&#xf191;"></span>
+					</div>
+
+					<div class="contact100-form-checkbox">
+						<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+						<label class="label-checkbox100" for="ckb1">
+							Remember me
+						</label>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<button id="login100-form-btn" class="login100-form-btn">
+							Login
+						</button>
+					</div>
+
+					<div class="text-center p-t-90">
+						<a class="txt1" href="#">
+							Forgot Password?
+						</a>
+					</div>
+			<!-- form -->	</div>
+			</div>
+		</div>
+	</div>
+
+	
+<div class="scene" id="scene">
+	<!-- <div class="video-grid" id="video">
+          <div class="video-view" style="position:absolute">
+            <div id="local_stream" class="video-placeholder"></div>
+            <div id="local_video_info" class="video-profile hide"></div>
+            <div id="video_autoplay_local" class="autoplay-fallback hide"></div>
+          </div>
+        </div>
+	-->
+	<div id="stream2" class="video-placeholder" style="margin-top:15px;position:absolute;"></div>
+ <div class="card" id="tmpCard" style="overflow:hidden;display:none;">
+  
+    <div class="card__face card__face--front">
+      <img id="userImg" src="" />
+	  <img id="frameImg"src=""/>
+	  <div id="local_stream" class="video-placeholder" style="margin-left:-90px"></div>
+    </div>
+	
+    <div class="card__face card__face--back">
+      <img src="https://i.loli.net/2019/11/16/cqyJiYlRwnTeHmj.jpg" style="position:absolute"/>
+    </div>
+  </div>
+ 
+  </div>
+  
+	<div id="dropDownSelect1"></div>
+	
+	
+  <form id="form" class="row col l12 s12" style="display:none">
+    <div class="row container col l12 s12">
+      <div class="col" style="min-width: 433px; max-width: 443px">
+        <div class="card" style="margin-top: 0px; margin-bottom: 0px;">
+          <div class="row card-content" style="margin-bottom: 0px;">
+              <div class="input-field">
+                <label for="appID" class="active">App ID</label>
+                <input type="text" placeholder="App ID" name="appID">
+              </div>
+              <div class="input-field">
+                <label for="channel" class="active">Channel</label>
+                <input type="text" placeholder="channel" name="channel">
+              </div>
+              <div class="input-field">
+                <label for="token" class="active">Token</label>
+                <input type="text" placeholder="token" name="token">
+              </div>
+              <div class="row" style="margin: 0">
+                <div class="col s12">
+                <button class="btn btn-raised btn-primary waves-effect waves-light" id="join">JOIN</button>
+                <button class="btn btn-raised btn-primary waves-effect waves-light" id="leave">LEAVE</button>
+                <button class="btn btn-raised btn-primary waves-effect waves-light" id="publish">PUBLISH</button>
+                <button class="btn btn-raised btn-primary waves-effect waves-light" id="unpublish">UNPUBLISH</button>
+                </div>
+              </div>
+          </div>
+        </div>
+		
+        <ul class="collapsible card agora-secondary-border" style="margin-top: .4rem; border: 1px ">
+          <li>
+            <div class="collapsible-header agora-secondary-bg" style="display:none">
+              <h8 class="center-align">ADVANCED SETTINGS</h8>
+            </div>
+            <div class="collapsible-body card-content" >
+              <div class="row">
+                <div class="col s12">
+                  <div class="input-field">
+                    <label for="UID" class="active">UID</label>
+                    <input type="number" placeholder="UID" name="uid">
+                  </div>
+                  <div class="input-field">
+                    <label for="cameraId" class="active">CAMERA</label>
+                    <select name="cameraId" id="cameraId"></select>
+                  </div>
+                  <div class="input-field">
+                    <label for="microphoneId" class="active">MICROPHONE</label>
+                    <select name="microphoneId" id="microphoneId"></select>
+                  </div>
+                  <div class="input-field">
+                    <label for="cameraResolution" class="active">CAMERA RESOLUTION</label>
+                    <select name="cameraResolution" id="cameraResolution"></select>
+                  </div>
+                  <div class="row col s12">
+                    <div class="row">
+                      <label for="mode" class="active">MODE</label>
+                    </div>
+                    <div class="row">
+                      <label>
+                        <input type="radio" class="with-gap" name="mode" value="live" checked />
+                        <span>live</span>
+                      </label>
+
+                      <label>
+                        <input type="radio" class="with-gap" name="mode" value="rtc" />
+                        <span>rtc</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="row col s12">
+                    <div class="row">
+                      <label for="codec" class="active">CODEC</label>
+                    </div>
+                    <div class="row">
+                      <label>
+                        <input type="radio" class="with-gap" name="codec" value="h264" checked />
+                        <span>h264</span>
+                      </label>
+
+                      <label>
+                        <input type="radio" class="with-gap" name="codec" value="vp8" />
+                        <span>vp8</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </li>
+        </ul>
+      </div>
+      <div class="col s7">
+       
+      </div>
+    </div>
+  </form>
+  
+  <script src="vendor/jquery.min.js"></script>
+  <script src="vendor/materialize.min.js"></script>
+  <!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+<!--===============================================================================================-->	
+	<script src="../lib/AgoraRTCSDK-3.1.0.js"></script>
+<!--===============================================================================================-->	
+	<script src="../lib/SendBird.min.js"></script>
+<!--===============================================================================================-->	
+	<script src="js/payload.js"></script>
+<!--===============================================================================================-->	
+  
+</html>

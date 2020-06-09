@@ -1,0 +1,91 @@
+
+<html>
+<head>
+
+<meta charset='UTF-8'><meta name="robots" content="noindex">
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,300' rel='stylesheet' type='text/css'>
+<script src="/../dist/RTCMultiConnection.js"></script>
+<script src="/../node_modules/webrtc-adapter/out/adapter.js"></script>
+<script src="/../socket.io/socket.io.js"></script>
+<script src="https://use.typekit.net/hoy3lrg.js"></script>
+<script>try{Typekit.load({ async: true });}catch(e){}</script>
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css'><link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css'>
+<link rel="stylesheet" href="css/toastnotify.css">
+<script src="js/toastnotify.js"></script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class='container' ng-cloak ng-app="chatApp">
+  <h1 style="display:none">TECHKILLA TECHNOLOGIES</h1>
+
+  <div class='chatbox' ng-controller="MessageCtrl as chatMessage">
+
+    <div class='chatbox__user-list'>
+      <div id="sidepanel">
+    		<div id="profile">
+    			<div class="wrap">
+    				<img id="profile-img" src="assets/male.png" class="online" alt="" />
+    				<p id="profileName">Ashish Kumar</p>
+    				<i class="fa fa-chevron-down expand-button" aria-hidden="true"></i>
+    				<div id="status-options">
+    					<ul>
+    						<li id="status-online" class="active"><span class="status-circle"></span> <p>Online</p></li>
+    						<li id="status-away"><span class="status-circle"></span> <p>Away</p></li>
+    						<li id="status-busy"><span class="status-circle"></span> <p>Busy</p></li>
+    						<li id="status-offline"><span class="status-circle"></span> <p>Offline</p></li>
+    					</ul>
+    				</div>
+    				<div id="expanded">
+    					<label for="twitter"><i class="fa fa-facebook fa-fw" aria-hidden="true"></i></label>
+    					<input name="twitter" type="text" value="" />
+    					<label for="twitter"><i class="fa fa-twitter fa-fw" aria-hidden="true"></i></label>
+    					<input name="twitter" type="text" value="" />
+    					<label for="twitter"><i class="fa fa-instagram fa-fw" aria-hidden="true"></i></label>
+    					<input name="twitter" type="text" value="" />
+    				</div>
+    			</div>
+    		</div>
+    		<div id="search">
+    			<label for=""><i class="fa fa-search" aria-hidden="true"></i></label>
+    			<input type="text" placeholder="Search contacts..." />
+    		</div>
+    		<div id="contacts">
+    			<ul id="userList">
+    				<li id="user" class="contact" style="display:none">
+    					<div class="wrap">
+    						<span class="contact-status online"></span>
+    						<img id="uimg" src="assets/male.jpg" alt="" />
+    						<div class="meta">
+    							<p id="uname" class="name">Yashi Mishra</p>
+
+    						</div>
+    					</div>
+    				</li>
+
+    			</ul>
+    		</div>
+    		<div id="bottom-bar">
+    			<button id="askButton" ><i class="fa fa-video-camera" aria-hidden="true"></i> <span>Ask</span></button>
+    			<button id="leaveButton"><i class="fa fa-times" aria-hidden="true"></i> <span>Leave</span></button>
+    		</div>
+     </div>
+
+    </div>
+    <div class="chatbox__messages" id="chatbox" ng-repeat="message in messages">
+   <video id="video" src="assets/movie.mp4" autoplay poster="" controls>
+
+   </video>
+  </div>
+
+  </div>
+
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/js.cookie.min.js"></script>
+<script src="js/main.js"></script>
+
+
+  </body>
+  </html>

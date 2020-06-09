@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+   <video id="video" width="640" height="480" controls></video><br>
+   <button id="button" type="button" name="button" style="margin-left:280px">Share</button>
+
+  <script src="/dist/RTCMultiConnection.js"></script>
+  <script src="/node_modules/webrtc-adapter/out/adapter.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+
+<script type="text/javascript">
+
+var connection = new RTCMultiConnection();
+
+connection.socketURL = "/";
+
+
+
+connection.session = {
+    screen: true,
+	audio : true,
+    onway : true
+};
+
+connection.mediaConstraints = {
+   auto:false,
+   video: {
+                mandatory: {
+                    chromeMediaSource: 'Desktop',
+                    maxWidth: 1920,
+                    maxHeight: 1080,
+                    minAspectRatio: 1.77
+                }
+			}
+};
+
+connection.dontGetRemoteStream = true;
+
+connection.sdpConstraints.mandatory = {
+    OfferToReceiveAudio: false,
+    OfferToReceiveVideo: false
+};
+
+
+document.getElementById("button").onclick = function(){
+  connection.userid = "techkillahost";
+  connection.openOrJoin("techkilla");
+};
+
+connection.onstream = function(event) {
+
+   var video = document.getElementById("video");
+
+    if (event.type === 'local') {
+
+        video.srcObject = event.stream;
+		video.muted = true;
+
+        setTimeout(function(){
+            video.play();
+        },1000);
+    }
+};
+
+
+</script>
+
+  </body>
+</html>
