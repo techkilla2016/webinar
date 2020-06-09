@@ -10,7 +10,7 @@
   "description": "RTCMultiConnection is a WebRTC JavaScript wrapper library runs top over RTCPeerConnection API to support all possible peer-to-peer features.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/muaz-khan/RTCMultiConnection.git"
+    "url": "https://git.heroku.com/tkwebinar.git"
   },
   "scripts": {
     "start": "node server.js",
@@ -56,7 +56,9 @@
     "recordrtc": "latest",
     "rtcmulticonnection-server": "latest",
     "socket.io": "latest",
-    "webrtc-adapter": "latest"
+    "webrtc-adapter": "latest",
+    "ejs": "latest",
+    "express": "latest"
   },
   "analyze": false,
   "license": "MIT",
@@ -65,7 +67,7 @@
     "url": "https://github.com/muaz-khan/RTCMultiConnection/issues",
     "email": "muazkh@gmail.com"
   },
-  "homepage": "https://rtcmulticonnection.herokuapp.com/demos/",
+  "homepage": "https://tkwebinar.herokuapp.com/demos/publisher.html",
   "tonicExampleFilename": "npm-test.js",
   "_from": "rtcmulticonnection@",
   "devDependencies": {
